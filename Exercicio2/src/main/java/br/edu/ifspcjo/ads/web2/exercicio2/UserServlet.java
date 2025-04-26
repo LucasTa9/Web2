@@ -21,9 +21,24 @@ private static final long serialVersionUID = 1L;
 	
 @Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		
+	req.setCharacterEncoding("UTF-8");
+	
+		String senha = req.getParameter("senha");
+		String email = req.getParameter("email");
+		
+		User user = new User();
+		user.setEmail(email);
+		user.setSenha(senha);
+		
+		if (user.getEmail().equals("lucas1336@gmail.com") && user.getSenha().equals("12345")) {
+			resp.sendRedirect("acesso.jsp");
+		} else {
+			resp.sendRedirect("erro.jsp");
+		}
+		
 	}
+  
 	
 	
 	
